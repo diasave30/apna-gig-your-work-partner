@@ -11,12 +11,19 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AadhaarRouteImport } from './routes/aadhaar'
+import { Route as AvailabilityRouteImport } from './routes/availability'
+import { Route as CooperativesRouteImport } from './routes/cooperatives'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as KycRouteImport } from './routes/kyc'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as OtpRouteImport } from './routes/otp'
 import { Route as ProfileSetupRouteImport } from './routes/profile-setup'
+import { Route as QrVerifyRouteImport } from './routes/qr-verify'
+import { Route as ServiceAreaRouteImport } from './routes/service-area'
+import { Route as SkillVerificationRouteImport } from './routes/skill-verification'
 import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as WorkerIdRouteImport } from './routes/worker-id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,6 +33,21 @@ const IndexRoute = IndexRouteImport.update({
 const AadhaarRoute = AadhaarRouteImport.update({
   id: '/aadhaar',
   path: '/aadhaar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvailabilityRoute = AvailabilityRouteImport.update({
+  id: '/availability',
+  path: '/availability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CooperativesRoute = CooperativesRouteImport.update({
+  id: '/cooperatives',
+  path: '/cooperatives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KycRoute = KycRouteImport.update({
@@ -53,85 +75,154 @@ const ProfileSetupRoute = ProfileSetupRouteImport.update({
   path: '/profile-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QrVerifyRoute = QrVerifyRouteImport.update({
+  id: '/qr-verify',
+  path: '/qr-verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreaRoute = ServiceAreaRouteImport.update({
+  id: '/service-area',
+  path: '/service-area',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillVerificationRoute = SkillVerificationRouteImport.update({
+  id: '/skill-verification',
+  path: '/skill-verification',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkerIdRoute = WorkerIdRouteImport.update({
+  id: '/worker-id',
+  path: '/worker-id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aadhaar': typeof AadhaarRoute
+  '/availability': typeof AvailabilityRoute
+  '/cooperatives': typeof CooperativesRoute
+  '/dashboard': typeof DashboardRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
   '/otp': typeof OtpRoute
   '/profile-setup': typeof ProfileSetupRoute
+  '/qr-verify': typeof QrVerifyRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/skill-verification': typeof SkillVerificationRoute
   '/skills': typeof SkillsRoute
+  '/worker-id': typeof WorkerIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aadhaar': typeof AadhaarRoute
+  '/availability': typeof AvailabilityRoute
+  '/cooperatives': typeof CooperativesRoute
+  '/dashboard': typeof DashboardRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
   '/otp': typeof OtpRoute
   '/profile-setup': typeof ProfileSetupRoute
+  '/qr-verify': typeof QrVerifyRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/skill-verification': typeof SkillVerificationRoute
   '/skills': typeof SkillsRoute
+  '/worker-id': typeof WorkerIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aadhaar': typeof AadhaarRoute
+  '/availability': typeof AvailabilityRoute
+  '/cooperatives': typeof CooperativesRoute
+  '/dashboard': typeof DashboardRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
   '/otp': typeof OtpRoute
   '/profile-setup': typeof ProfileSetupRoute
+  '/qr-verify': typeof QrVerifyRoute
+  '/service-area': typeof ServiceAreaRoute
+  '/skill-verification': typeof SkillVerificationRoute
   '/skills': typeof SkillsRoute
+  '/worker-id': typeof WorkerIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/aadhaar'
+    | '/availability'
+    | '/cooperatives'
+    | '/dashboard'
     | '/kyc'
     | '/login'
     | '/onboarding'
     | '/otp'
     | '/profile-setup'
+    | '/qr-verify'
+    | '/service-area'
+    | '/skill-verification'
     | '/skills'
+    | '/worker-id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/aadhaar'
+    | '/availability'
+    | '/cooperatives'
+    | '/dashboard'
     | '/kyc'
     | '/login'
     | '/onboarding'
     | '/otp'
     | '/profile-setup'
+    | '/qr-verify'
+    | '/service-area'
+    | '/skill-verification'
     | '/skills'
+    | '/worker-id'
   id:
     | '__root__'
     | '/'
     | '/aadhaar'
+    | '/availability'
+    | '/cooperatives'
+    | '/dashboard'
     | '/kyc'
     | '/login'
     | '/onboarding'
     | '/otp'
     | '/profile-setup'
+    | '/qr-verify'
+    | '/service-area'
+    | '/skill-verification'
     | '/skills'
+    | '/worker-id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AadhaarRoute: typeof AadhaarRoute
+  AvailabilityRoute: typeof AvailabilityRoute
+  CooperativesRoute: typeof CooperativesRoute
+  DashboardRoute: typeof DashboardRoute
   KycRoute: typeof KycRoute
   LoginRoute: typeof LoginRoute
   OnboardingRoute: typeof OnboardingRoute
   OtpRoute: typeof OtpRoute
   ProfileSetupRoute: typeof ProfileSetupRoute
+  QrVerifyRoute: typeof QrVerifyRoute
+  ServiceAreaRoute: typeof ServiceAreaRoute
+  SkillVerificationRoute: typeof SkillVerificationRoute
   SkillsRoute: typeof SkillsRoute
+  WorkerIdRoute: typeof WorkerIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -148,6 +239,27 @@ declare module '@tanstack/react-router' {
       path: '/aadhaar'
       fullPath: '/aadhaar'
       preLoaderRoute: typeof AadhaarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/availability': {
+      id: '/availability'
+      path: '/availability'
+      fullPath: '/availability'
+      preLoaderRoute: typeof AvailabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperatives': {
+      id: '/cooperatives'
+      path: '/cooperatives'
+      fullPath: '/cooperatives'
+      preLoaderRoute: typeof CooperativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kyc': {
@@ -185,11 +297,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileSetupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/qr-verify': {
+      id: '/qr-verify'
+      path: '/qr-verify'
+      fullPath: '/qr-verify'
+      preLoaderRoute: typeof QrVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-area': {
+      id: '/service-area'
+      path: '/service-area'
+      fullPath: '/service-area'
+      preLoaderRoute: typeof ServiceAreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skill-verification': {
+      id: '/skill-verification'
+      path: '/skill-verification'
+      fullPath: '/skill-verification'
+      preLoaderRoute: typeof SkillVerificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/skills': {
       id: '/skills'
       path: '/skills'
       fullPath: '/skills'
       preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/worker-id': {
+      id: '/worker-id'
+      path: '/worker-id'
+      fullPath: '/worker-id'
+      preLoaderRoute: typeof WorkerIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -198,12 +338,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AadhaarRoute: AadhaarRoute,
+  AvailabilityRoute: AvailabilityRoute,
+  CooperativesRoute: CooperativesRoute,
+  DashboardRoute: DashboardRoute,
   KycRoute: KycRoute,
   LoginRoute: LoginRoute,
   OnboardingRoute: OnboardingRoute,
   OtpRoute: OtpRoute,
   ProfileSetupRoute: ProfileSetupRoute,
+  QrVerifyRoute: QrVerifyRoute,
+  ServiceAreaRoute: ServiceAreaRoute,
+  SkillVerificationRoute: SkillVerificationRoute,
   SkillsRoute: SkillsRoute,
+  WorkerIdRoute: WorkerIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
