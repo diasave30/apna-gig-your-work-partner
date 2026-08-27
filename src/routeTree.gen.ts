@@ -15,6 +15,7 @@ import { Route as AvailabilityRouteImport } from './routes/availability'
 import { Route as CooperativesRouteImport } from './routes/cooperatives'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemandRouteImport } from './routes/demand'
+import { Route as JobRequestsRouteImport } from './routes/job-requests'
 import { Route as KycRouteImport } from './routes/kyc'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -54,6 +55,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const DemandRoute = DemandRouteImport.update({
   id: '/demand',
   path: '/demand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobRequestsRoute = JobRequestsRouteImport.update({
+  id: '/job-requests',
+  path: '/job-requests',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KycRoute = KycRouteImport.update({
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
   '/demand': typeof DemandRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
   '/demand': typeof DemandRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
   '/demand': typeof DemandRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/cooperatives'
     | '/dashboard'
     | '/demand'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/cooperatives'
     | '/dashboard'
     | '/demand'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/cooperatives'
     | '/dashboard'
     | '/demand'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -226,6 +238,7 @@ export interface RootRouteChildren {
   CooperativesRoute: typeof CooperativesRoute
   DashboardRoute: typeof DashboardRoute
   DemandRoute: typeof DemandRoute
+  JobRequestsRoute: typeof JobRequestsRoute
   KycRoute: typeof KycRoute
   LoginRoute: typeof LoginRoute
   OnboardingRoute: typeof OnboardingRoute
@@ -280,6 +293,13 @@ declare module '@tanstack/react-router' {
       path: '/demand'
       fullPath: '/demand'
       preLoaderRoute: typeof DemandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/job-requests': {
+      id: '/job-requests'
+      path: '/job-requests'
+      fullPath: '/job-requests'
+      preLoaderRoute: typeof JobRequestsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kyc': {
@@ -362,6 +382,7 @@ const rootRouteChildren: RootRouteChildren = {
   CooperativesRoute: CooperativesRoute,
   DashboardRoute: DashboardRoute,
   DemandRoute: DemandRoute,
+  JobRequestsRoute: JobRequestsRoute,
   KycRoute: KycRoute,
   LoginRoute: LoginRoute,
   OnboardingRoute: OnboardingRoute,
