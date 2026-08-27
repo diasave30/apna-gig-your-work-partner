@@ -24,7 +24,7 @@ export const Route = createFileRoute("/qr-verify")({
       { property: "og:description", content: "Instant on-site verification for workers." },
     ],
   }),
-  component: QrVerify;
+  component: QrVerify,
 });
 
 type Mode = "show" | "scan";
