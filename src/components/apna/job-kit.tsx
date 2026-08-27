@@ -8,7 +8,7 @@ import { jobStatusMeta, type Job, type JobStatus } from "@/lib/job-data";
 import { formatInr } from "@/lib/job-store";
 import { cn } from "@/lib/utils";
 
-export function JobStatusBadge({ status, className }: { status: JobStatus; className?: string }) {
+export function JobStatusBadge({ status, className }: { status: JobStatus; className?: string | undefined }) {
   const meta = jobStatusMeta[status];
   return <StatusBadge kind={meta.kind} label={meta.label} className={className} />;
 }
@@ -19,7 +19,7 @@ export function JobCard({
   cta = "View details",
 }: {
   job: Job;
-  onClick?: () => void | undefined;
+  onClick?: (() => void) | undefined;
   cta?: string | undefined;
 }) {
   return (
@@ -75,7 +75,7 @@ export function CompactJobCard({
   earnings: number;
   status: JobStatus;
   to?: string | undefined;
-  onClick?: () => void | undefined;
+  onClick?: (() => void) | undefined;
 }) {
   const body = (
     <Card onClick={onClick} className="space-y-2">
