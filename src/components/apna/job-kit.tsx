@@ -19,8 +19,8 @@ export function JobCard({
   cta = "View details",
 }: {
   job: Job;
-  onClick?: () => void;
-  cta?: string;
+  onClick?: () => void | undefined;
+  cta?: string | undefined;
 }) {
   return (
     <Card onClick={onClick} className="space-y-3">
@@ -74,8 +74,8 @@ export function CompactJobCard({
   date: string;
   earnings: number;
   status: JobStatus;
-  to?: string;
-  onClick?: () => void;
+  to?: string | undefined;
+  onClick?: () => void | undefined;
 }) {
   const body = (
     <Card onClick={onClick} className="space-y-2">
@@ -110,7 +110,7 @@ export function FilterChips({
   options: string[];
   value: string;
   onChange: (v: string) => void;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <div className={cn("-mx-5 flex gap-2 overflow-x-auto px-5 pb-1", className)}>
@@ -138,7 +138,7 @@ export function InfoRow({
   label,
   value,
 }: {
-  icon?: ReactNode;
+  icon?: ReactNode | undefined;
   label: string;
   value: ReactNode;
 }) {
@@ -159,10 +159,10 @@ export function MapPanel({
   label,
   height = 220,
 }: {
-  eta?: string;
-  distance?: string;
+  eta?: string | undefined;
+  distance?: string | undefined;
   label: string;
-  height?: number;
+  height?: number | undefined;
 }) {
   return (
     <div
@@ -208,7 +208,7 @@ export function OtpEntry({
   value,
   onChange,
 }: {
-  length?: number;
+  length?: number | undefined;
   value: string[];
   onChange: (next: string[]) => void;
 }) {
