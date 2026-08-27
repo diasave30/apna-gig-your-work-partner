@@ -14,6 +14,10 @@ import { Route as AadhaarRouteImport } from './routes/aadhaar'
 import { Route as AvailabilityRouteImport } from './routes/availability'
 import { Route as CooperativesRouteImport } from './routes/cooperatives'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DemandRouteImport } from './routes/demand'
+import { Route as JobDecisionRouteImport } from './routes/job-decision'
+import { Route as JobDetailsRouteImport } from './routes/job-details'
+import { Route as JobRequestsRouteImport } from './routes/job-requests'
 import { Route as KycRouteImport } from './routes/kyc'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -48,6 +52,26 @@ const CooperativesRoute = CooperativesRouteImport.update({
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemandRoute = DemandRouteImport.update({
+  id: '/demand',
+  path: '/demand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobDecisionRoute = JobDecisionRouteImport.update({
+  id: '/job-decision',
+  path: '/job-decision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobDetailsRoute = JobDetailsRouteImport.update({
+  id: '/job-details',
+  path: '/job-details',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobRequestsRoute = JobRequestsRouteImport.update({
+  id: '/job-requests',
+  path: '/job-requests',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KycRoute = KycRouteImport.update({
@@ -107,6 +131,10 @@ export interface FileRoutesByFullPath {
   '/availability': typeof AvailabilityRoute
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
+  '/demand': typeof DemandRoute
+  '/job-decision': typeof JobDecisionRoute
+  '/job-details': typeof JobDetailsRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -124,6 +152,10 @@ export interface FileRoutesByTo {
   '/availability': typeof AvailabilityRoute
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
+  '/demand': typeof DemandRoute
+  '/job-decision': typeof JobDecisionRoute
+  '/job-details': typeof JobDetailsRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -142,6 +174,10 @@ export interface FileRoutesById {
   '/availability': typeof AvailabilityRoute
   '/cooperatives': typeof CooperativesRoute
   '/dashboard': typeof DashboardRoute
+  '/demand': typeof DemandRoute
+  '/job-decision': typeof JobDecisionRoute
+  '/job-details': typeof JobDetailsRoute
+  '/job-requests': typeof JobRequestsRoute
   '/kyc': typeof KycRoute
   '/login': typeof LoginRoute
   '/onboarding': typeof OnboardingRoute
@@ -161,6 +197,10 @@ export interface FileRouteTypes {
     | '/availability'
     | '/cooperatives'
     | '/dashboard'
+    | '/demand'
+    | '/job-decision'
+    | '/job-details'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -178,6 +218,10 @@ export interface FileRouteTypes {
     | '/availability'
     | '/cooperatives'
     | '/dashboard'
+    | '/demand'
+    | '/job-decision'
+    | '/job-details'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -195,6 +239,10 @@ export interface FileRouteTypes {
     | '/availability'
     | '/cooperatives'
     | '/dashboard'
+    | '/demand'
+    | '/job-decision'
+    | '/job-details'
+    | '/job-requests'
     | '/kyc'
     | '/login'
     | '/onboarding'
@@ -213,6 +261,10 @@ export interface RootRouteChildren {
   AvailabilityRoute: typeof AvailabilityRoute
   CooperativesRoute: typeof CooperativesRoute
   DashboardRoute: typeof DashboardRoute
+  DemandRoute: typeof DemandRoute
+  JobDecisionRoute: typeof JobDecisionRoute
+  JobDetailsRoute: typeof JobDetailsRoute
+  JobRequestsRoute: typeof JobRequestsRoute
   KycRoute: typeof KycRoute
   LoginRoute: typeof LoginRoute
   OnboardingRoute: typeof OnboardingRoute
@@ -260,6 +312,34 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demand': {
+      id: '/demand'
+      path: '/demand'
+      fullPath: '/demand'
+      preLoaderRoute: typeof DemandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/job-decision': {
+      id: '/job-decision'
+      path: '/job-decision'
+      fullPath: '/job-decision'
+      preLoaderRoute: typeof JobDecisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/job-details': {
+      id: '/job-details'
+      path: '/job-details'
+      fullPath: '/job-details'
+      preLoaderRoute: typeof JobDetailsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/job-requests': {
+      id: '/job-requests'
+      path: '/job-requests'
+      fullPath: '/job-requests'
+      preLoaderRoute: typeof JobRequestsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kyc': {
@@ -341,6 +421,10 @@ const rootRouteChildren: RootRouteChildren = {
   AvailabilityRoute: AvailabilityRoute,
   CooperativesRoute: CooperativesRoute,
   DashboardRoute: DashboardRoute,
+  DemandRoute: DemandRoute,
+  JobDecisionRoute: JobDecisionRoute,
+  JobDetailsRoute: JobDetailsRoute,
+  JobRequestsRoute: JobRequestsRoute,
   KycRoute: KycRoute,
   LoginRoute: LoginRoute,
   OnboardingRoute: OnboardingRoute,

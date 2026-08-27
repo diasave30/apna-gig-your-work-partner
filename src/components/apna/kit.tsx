@@ -224,7 +224,7 @@ export function StatusBadge({
 }: {
   kind: StatusKind;
   label: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <span
@@ -247,8 +247,8 @@ export function Card({
   onClick,
 }: {
   children: ReactNode;
-  className?: string;
-  onClick?: () => void;
+  className?: string | undefined;
+  onClick?: (() => void) | undefined;
 }) {
   return (
     <div
